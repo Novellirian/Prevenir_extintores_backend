@@ -1,0 +1,6 @@
+@Prevenir_extintores_HostAddress = http://localhost:5125
+
+GET {{Prevenir_extintores_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
