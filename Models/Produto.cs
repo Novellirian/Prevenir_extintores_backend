@@ -22,6 +22,15 @@ namespace Prevenir_extintores.Models
         {
             Console.WriteLine("Preço atualizado");
         }
+
+        private void consultarEstoque()
+        {
+            Console.WriteLine("Estoque atualizado");
+        }
+        private void atualizarEstoque()
+        {
+            Console.WriteLine("Consulta do Estoque concluída");
+        }
     }
 
 
