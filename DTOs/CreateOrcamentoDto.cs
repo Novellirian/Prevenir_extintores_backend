@@ -1,13 +1,10 @@
-namespace Prevenir_extintores.Models;
+﻿namespace Prevenir_extintores.DTOs;
 
-public class SolicitacaoOrcamento
+public class CreateOrcamentoDto
 {
-    public int Id { get; set; }
     public string NomeCliente { get; set; } = string.Empty;
     public string EmailCliente { get; set; } = string.Empty;
     public string TelefoneCliente { get; set; } = string.Empty;
     public string Mensagem { get; set; } = string.Empty;
     public string TipoServico { get; set; } = string.Empty;
-    public DateTime DataSolicitacao { get; set; }
-    public StatusSolicitacao Status { get; set; }
 }
