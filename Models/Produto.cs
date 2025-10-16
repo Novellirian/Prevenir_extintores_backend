@@ -6,7 +6,8 @@ namespace Prevenir_extintores.Models
         public string Nome { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
         public string UrlImagem { get; set; } = string.Empty;
-        public float Preco { get; set; }
+        public float Preco { get; private set; }
+        public int Estoque { get; private set; }
 
 
         public Produto(int Id, string Nome, string Descricao, string UrlImagem, float Preco)
@@ -18,20 +19,36 @@ namespace Prevenir_extintores.Models
             this.Preco = Preco;
         }
 
-        private void atualizarPreco()
+        private void atualizarPreco(float novoPreco)
         {
-            Console.WriteLine("Preço atualizado");
+            if (novoPreco <= 0)
+            {
+                throw new ArgumentException("Preço inválido");
+            }
+            Preco = novoPreco;
+
         }
 
-        private void consultarEstoque()
+        public void AdicionarEstoque(int quantidade)
         {
-            Console.WriteLine("Estoque atualizado");
+            if (quantidade <= 0)
+                throw new ArgumentException("A quantidade deve ser positiva.");
+
+            Estoque += quantidade;
         }
-        private void atualizarEstoque()
+
+        public void RemoverEstoque(int quantidade)
         {
-            Console.WriteLine("Consulta do Estoque concluída");
+            if (quantidade <= 0)
+                throw new ArgumentException("A quantidade deve ser positiva.");
+
+            if (quantidade > Estoque)
+                throw new InvalidOperationException("Estoque insuficiente.");
+
+            Estoque -= quantidade;
+
         }
+
+
     }
-
-
 }
